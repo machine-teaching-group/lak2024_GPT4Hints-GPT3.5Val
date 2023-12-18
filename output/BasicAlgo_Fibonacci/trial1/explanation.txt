@@ -1,0 +1,1 @@
+The bug in the program is that it does not include the first three terms of the Fibonacci series (0, 1, 1) in the answer list for N greater than 1. The fix is to initialize the answer list with these three terms and then continue with the Fibonacci series calculation.

@@ -1,0 +1,1 @@
+The bug in the program is in the regular expression pattern. The pattern `(\w+) (\w+)(?=: B)` is capturing two separate word groups, which results in a list of tuples. The fix is to capture the full name as one group by using `(\w+ \w+)(?=: B)`. This will return a list of full names as strings.

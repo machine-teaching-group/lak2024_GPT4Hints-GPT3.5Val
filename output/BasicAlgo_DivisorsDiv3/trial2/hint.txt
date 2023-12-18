@@ -1,0 +1,1 @@
+Consider how your program handles cases where a divisor is the square root of N.

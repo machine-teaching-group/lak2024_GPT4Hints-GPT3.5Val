@@ -1,0 +1,1 @@
+Consider the case where the GCD is 1, and think about how your current approach handles this situation.

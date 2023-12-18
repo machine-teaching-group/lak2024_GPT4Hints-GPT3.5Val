@@ -1,0 +1,1 @@
+The bug in the program is that the original string S is being modified in the reverse function. When you compare the reversed string with the original string, they are always the same because they are both pointing to the same modified list. The fix is to pass a copy of the original string to the reverse function so that the original string remains unmodified.

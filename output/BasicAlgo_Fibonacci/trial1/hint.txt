@@ -1,0 +1,1 @@
+Consider how the Fibonacci series starts and how you can ensure these initial terms are included in your answer list for all valid inputs.

@@ -1,0 +1,1 @@
+Consider how you are slicing the remaining part of the longer string when one string is longer than the other.

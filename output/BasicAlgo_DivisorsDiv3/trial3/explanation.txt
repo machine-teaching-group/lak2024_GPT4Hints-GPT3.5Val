@@ -1,0 +1,1 @@
+The bug in your program is in the condition where you check if (N/i) % 3 == 0. The problem is that you are performing this operation with floating point numbers, which can lead to precision errors. You should convert the result of N/i to an integer before performing the modulus operation.

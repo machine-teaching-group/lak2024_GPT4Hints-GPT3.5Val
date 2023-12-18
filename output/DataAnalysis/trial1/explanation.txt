@@ -1,0 +1,1 @@
+The bug in the program is in the line where you are filtering the male children who were vaccinated. You are only considering those who received exactly one dose of the vaccine (`male['P_NUMVRC'] == 1`), but the problem statement asks for children who received at least one dose of the vaccine. The fix is to change the condition to `male['P_NUMVRC'] >= 1`.

@@ -1,0 +1,1 @@
+Consider the effect of Python's pass-by-reference behavior on mutable objects like lists when you're reversing the string.

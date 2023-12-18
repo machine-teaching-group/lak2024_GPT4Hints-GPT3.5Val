@@ -1,0 +1,109 @@
+{
+	"repair": {
+		"command_head": "I'm working on a Python programming problem. The current program below is not working well. Can you help in fixing this program with as few changes as possible? Below I first provide the problem description and then the current buggy program.",
+		"command_tail": {
+			"DS": "Can you fix the above buggy program? Make sure that you make minimal possible changes needed to fix the program.",
+			"ip10": "Can you fix the above buggy program? The code marked as #Driver Code is correct and should not be modified. Make sure that you make minimal possible changes needed to fix the program."
+		}
+	},
+	"simstu_repair": {
+		"hint": {
+			"command_head": "I'm working on a Python programming problem. The current program below is not working well. Can you help in fixing this program according to a given hint? Below I first provide the problem description, the current buggy program, and then the hint.",
+			"command_tail": {
+				"DS": "If anything in the hint above is incorrect or too confusing, please say \"Hint is bad.\" and halt. On the other hand, if all the reasoning in the hint above is correct and easy to understand, then please fix the buggy program above according to the hint above. In this case, note that the hint above may not cover all bugs (if there are multiple bugs) in the program, so you need to think to resolve the remaining bugs by yourself.",
+				"ip10": "If anything in the hint above is incorrect or too confusing, please say \"Hint is bad.\" and halt. On the other hand, if all the reasoning in the hint above is correct and easy to understand, then please fix the buggy program above according to the hint above. In this case, note that the hint above may not cover all bugs (if there are multiple bugs) in the program, so you need to think to resolve the remaining bugs by yourself. Also, the code marked as #Driver Code is correct and should not be modified or removed."
+			}
+		},
+		"explanation": {
+			"command_head": "I'm working on a Python programming problem. The current program below is not working well. Can you help in fixing this program according to a given explanation of the bug(s)? Below I first provide the problem description, the current buggy program, and then the explanation of the bug(s).",
+			"command_tail": {
+				"DS": "If anything in the explanation above is incorrect or too confusing, please say \"Explanation is bad.\" and halt. On the other hand, if all the reasoning in the explanation above is correct and easy to understand, then please fix the buggy program above according to the explanation above. In this case, note that the explanation above may not cover all bugs (if there are multiple bugs) in the program, so you need to think to resolve the remaining bugs by yourself.",
+				"ip10": "If anything in the explanation above is incorrect or too confusing, please say \"Explanation is bad.\" and halt. On the other hand, if all the reasoning in the explanation above is correct and easy to understand, then please fix the buggy program above according to the explanation above. In this case, note that the explanation above may not cover all bugs (if there are multiple bugs) in the program, so you need to think to resolve the remaining bugs by yourself. Also, the code marked as #Driver Code is correct and should not be modified or removed."
+			}
+		}
+	},
+	"hint": {
+		"command_head":  "I'm working on a Python programming problem. The current program below is not working well. Can you help by giving a hint?",
+		"command_tail": "(1) Can you describe the bug(s) in this program and the required fixes?\n\n(2) Can you provide a concise single-sentence hint about one bug in this program? The hint should not be too detailed as I want to think about the fixes by myself. However, the hint should not be too abstract, as I need some help."
+	},
+	"symbolic": {
+		"resources": "{command_head}\n\n{problem_description}\n\n{resources}\n\n{buggy}\n\n{generated_output}{command_tail}",
+		"output": "{command_head}\n\n{problem_description}\n\n{resources}\n\n{test_case}\n\n{buggy}\n\n{command_tail}",
+		"ChatGPT-repair-if-correct": "{command_head}\n\n{problem_description}\n\n{resources}\n\n{test_case}\n\n{buggy}\n\n{repair}\n\n{command_tail}"
+	},
+	"questions": {
+		"all": {
+			"test_case": "The buggy program's output:\n{program_output}\nThe expected output:\n{expected_output}",
+			"buggy": "Buggy program:\n```\n{buggy_program}\n```",
+			"repair": "The fixed program of the buggy program above:\n```\n{repair_program}\n```",
+			"generated_explanation": "The explanation of the bug(s) in the buggy program:\n{generated_explanation}\n\n"
+		},
+		"a-2_q-2": {
+			"problem_description": "Problem description:\nIt would be interesting to see if there is any evidence of a link between vaccine effectiveness and sex of the child. Calculate the ratio of the number of children who contracted chickenpox but were vaccinated against it (at least one varicella dose) versus those who were vaccinated but did not contract chicken pox. Return results by sex.\n*This function should return a dictionary in the form of (use the correct numbers):* \n```\n    {{\"male\":0.2,\n    \"female\":0.4}}\n```\n\nTemplate code:\n```\ndef chickenpox_by_sex():\n    # YOUR CODE HERE\n    raise NotImplementedError()\n```",
+			"resources": "Resources:\nThe dataframe is located at `assets/data.csv`.\nColumn description:\n\tSEX: sex of child. Type: categorial. Values: 1 - male, 2 - female.\n\tHAD_CPOX: child ever had chicken pox disease? Type: categorical. Values: 1 - Yes, 2 - No, 77 - don't know, 99 - refused.\n\tP_NUMVRC: number of varicella-containing shots by 36 months of age determined from provider info, excluding any vaccinations after the hh interview date. Type: numeric. There may be NaN values in this column.\nThere are other columns in the dataframe, but you only need these 3 columns, `SEX`, `HAD_CPOX`, and `P_NUMVRC`, to solve this problem.\nYou are only allowed to use the built-in Python modules and the following libraries: `numpy`, `pandas`, and `scipy`. Don't use other libraries.",
+			"expected_output": "{'female': 0.0077918259335489565, 'male': 0.009675583380762664}",
+			"test_script": "data/DataAnalysis/testsuite/test.py"
+		},
+		"a-1_q-2": {
+			"problem_description": "Problem description:\nThe dataset file in assets/grades.txt contains multiple lines of people along with their grades in a class. Fix the incorrect regex between ### FIX CODE BELOW and ### FIX CODE ABOVE to generate a list of just those students who received a B in the course (e.g., ['John Doe', 'Jane Doe'].)\n\nTemplate code:\n```\ndef student_grades():\n    import re\n    with open (\"assets/grades.txt\", \"r\") as file:\n        grades = file.read()\n\n    ### FIX CODE BELOW\n    pattern = \"\"\"(\\w+)\"\"\"\n    matches = re.findall(pattern,grades)\n    ### FIX CODE ABOVE\n        \n        \n    # YOUR CODE HERE\n    raise NotImplementedError()\n\n    return matches  \n    \nstudent_grades()\n```",
+			"resources": "Resources:\nThe data file is located at `assets/grades.txt`.\nData format: \"{first_name} {last_name}: {grade}\". For example, the first 5 lines of the file are given below:\n```\nRonald Mayr: A\nBell Kassulke: B\nJacqueline Rupp: A \nAlexander Zeller: C\nValentina Denk: C \n```\nYou are only allowed to use the built-in Python modules (in particular, you are expected to use the `re` module). Don't use other libraries.",
+			"expected_output": "['Bell Kassulke',  'Simon Loidl',  'Elias Jovanovic',  'Hakim Botros',  'Emilie Lorentsen',  'Jake Wood',  'Fatemeh Akhtar',  'Kim Weston',  'Yasmin Dar',  'Viswamitra Upandhye',  'Killian Kaufman',  'Elwood Page',  'Elodie Booker',  'Adnan Chen',  'Hank Spinka',  'Hannah Bayer']",
+			"test_script": "data/DataRegex/testsuite/test.py"
+		},
+		"a-ip10_q-gcd": {
+			"problem_name": "GCD of two numbers",
+			"problem_description": "Problem description:\nGiven two positive integers A and B, find GCD of A and B.",
+			"expected_time_complexity": "Expected Time Complexity: O(log(min(A, B)))",
+			"expected_auxiliary_space": "Expected Auxiliary Space: O(1)",
+			"constraints": "Constraints: 1 <= A, B <= 10^9",
+			"your_task":"You don't need to read input or print anything. Complete the function gcd() which takes two positive integers as input parameters and returns an integer.",
+			"examples": "Example 1:\nInput: A = 3, B = 6\nOutput: 3\nExplanation: GCD of 3 and 6 is 3\nExample 2:\nInput: A = 1, B = 1\nOutput: 1\nExplanation: GCD of 1 and 1 is 1",
+			"testcases_path": "data/BasicAlgo_GCD/testsuite",
+			"driver_code": "if __name__ == '__main__': \n    t = int(input())\n    for _ in range(t):\n        A,B = list(map(int, input().strip().split()))\n        ob = Solution()\n        print(ob.gcd(A,B))"
+		},
+		"a-ip10_q-fibonacci": {
+			"problem_name": "Fibonacci to N",
+			"problem_description": "Problem description:\nGiven a positive integer N. Calculate the Fibonacci series till the number N. If N is a part of the series, include N as well.",
+			"expected_time_complexity": "Expected Time Complexity: O(N)",
+			"expected_auxiliary_space": "Expected Auxiliary Space: O(N)",
+			"constraints": "Constraints: 1 <= N <= 10^9",
+			"your_task": "You don't need to read input or print anything.Your Task is to complete the function nFibonacci() that takes an integer N as input parameter and returns a list of integers containing all terms of the fibonacci series up until N.",
+			"examples": "Example 1:\nInput:\nN = 1\nOutput:\n0 1 1\nExplanation:\nSince 1 is part of the Fibonacci series, the required series is upto 1.\nExample 2:\nInput:\nN = 5\nOutput:\n0 1 1 2 3 5\nExplanation:\nThe required series is upto 5(since 5 is a part of the series).\nNote: The answer for N=6 and N=7 will be the same since the next term (i.e. 8) is greater than the respective Ns.",
+			"testcases_path": "data/BasicAlgo_Fibonacci/testsuite",
+			"driver_code": "if __name__=='__main__':\n    t=int(input())\n    for _ in range(t):\n        N=int(input())\n        ob=Solution()\n        ans=ob.nFibonacci(N)\n        for i in ans:\n            print(i,end=\" \")\n        print()"
+		},
+		"a-ip10_q-divisorsdiv3": {
+			"problem_name": "Number of divisors",
+			"problem_description": "Problem description:\nGiven an integer N, find the number of divisors of N that are divisible by 3.",
+			"expected_time_complexity": "Expected Time Complexity: O(sqrt(N))",
+			"expected_auxiliary_space": "Expected Auxiliary Space: O(1)",
+			"constraints": "Constraints: 1 <= N <= 10^5",
+			"your_task":"You don't need to read or print anything. Your task is to complete the function count_divisors() which takes N as input parameter and returns count of divisor which are divisible by 3.",
+			"examples": "Example 1:\nInput : 6\nOutput: 2\nExplanation: 1, 2, 3, 6 are divisors of 6 out of which 3 and 6 are divisible by 3.\nExample 2:\nInput: 10\nOutput: 0\nExplanation: 1, 2, 5 and 10 are divisors of 10 but none of them are divisible by 3.",
+			"testcases_path": "data/BasicAlgo_DivisorsDiv3/testsuite",
+			"driver_code": "if __name__ == '__main__': \n    t = int (input ())\n    for _ in range (t):\n        N = int(input())\n       \n\n        ob = Solution()\n        print(ob.count_divisors(N))"
+		},
+		"a-ip10_q-palindrome": {
+			"problem_name": "Palindrome String",
+			"problem_description": "Given a string S, check if it is palindrome or not.",
+			"expected_time_complexity": "Expected Time Complexity: O(Length of S)",
+			"expected_auxiliary_space": "Expected Auxiliary Space: O(1)",
+			"constraints": "Constraints: 1 <= Length of S <= 10^5",
+			"your_task":"You don't need to read input or print anything. Complete the function isPalindrome() which accepts string S and returns an integer value 1 or 0.",
+			"examples": "Example 1:\nInput: S = \"abba\"\nOutput: 1\nExplanation: S is a palindrome.\nExample 2:\nInput: S = \"abc\" \nOutput: 0\nExplanation: S is not a palindrome.",
+			"testcases_path": "data/BasicAlgo_Palindrome/testsuite",
+			"driver_code": "if __name__ == '__main__':\n\tT=int(input())\n\tfor i in range(T):\n\t\tS = input()\n\t\tob = Solution()\n\t\tanswer = ob.isPalindrome(S)\n\t\tprint(answer)"
+		},
+		"a-ip10_q-mergestrs": {
+			"problem_name": "Merge two strings",
+			"problem_description": "Given two strings S1 and S2 as input, the task is to merge them alternatively i.e. the first character of S1 then the first character of S2 and so on till the strings end.\nNOTE: Add the whole string if other string is empty.",
+			"expected_time_complexity": "Expected Time Complexity: O(|S1| + |S2|)",
+			"expected_auxiliary_space": "Expected Auxiliary Space: O(1)",
+			"constraints": "Constraints: 1 <= |S1|, |S2| <= 10^3",
+			"your_task":"You don't need to read input or print anything. Your task is to complete the function merge() which takes the strings S1 and S2 as input and returns the resultant string by merging both S1 and S2 alternatively starting from S1.",
+			"examples": "Example 1:\nInput: S1 = \"Hello\", S2 = \"Bye\"\nOutput: HBeylelo\nExplanation: The characters of both the given strings are arranged alternatlively.\nExample 2:\nInput: S1 = \"abc\", S2 = \"def\"\nOutput: adbecf\nExplanation: The characters of both the given strings are arranged alternatlively.",
+			"testcases_path": "data/BasicAlgo_MergeStrs/testsuite",
+			"driver_code": "if __name__ == '__main__': \n    t = int(input())\n    for _ in range(t):\n        S1,S2 = map(str,input().strip().split())\n        ob = Solution()\n        print(ob.merge(S1, S2))"
+		}
+	}
+}

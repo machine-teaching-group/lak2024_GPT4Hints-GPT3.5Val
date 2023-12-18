@@ -1,0 +1,1 @@
+The bug in this program is that it incorrectly counts divisors that are the same. When the divisor is the square root of N, it is counted twice. This is because the condition "if N/i > i" is not met when i is the square root of N, so the divisor is counted in both "if i % 3 == 0" and "if (N/i) % 3 == 0" conditions.

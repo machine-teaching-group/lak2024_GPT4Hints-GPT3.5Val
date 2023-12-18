@@ -1,0 +1,1 @@
+The bug in this program is that it is not correctly handling the case when the divisor and the result of the division are the same. In the case of N = 30, the divisors are 1, 2, 3, 5, 6, 10, 15, 30. Out of these, 3, 6, 15, 30 are divisible by 3. However, when i = 5, N/i = 6, and both 5 and 6 are counted as divisors divisible by 3, which is incorrect as 5 is not divisible by 3.
