@@ -58,7 +58,7 @@ def validate(
     # Compute validation result
     n, alpha, beta = 10, 0.5, 0.25
     eps = 1e-9  # epsilon for float comparison
-    if (n2 >= n1 - eps) and ((n2 >= alpha - eps) or (n2 / n - n1 / n >= beta - eps)):
+    if (n2 >= n1 - eps) and ((n2 / n >= alpha - eps) or (n2 / n - n1 / n >= beta - eps)):
         validation_result = True
     else:
         validation_result = False
